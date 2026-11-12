@@ -11,12 +11,35 @@
 html{scroll-behavior:smooth}
 body{margin:0;background:#F6F5F1}
 a{color:#0E5B4A}a:hover{color:#093D32}
+.burger{display:none;width:44px;height:44px;border:1px solid #E3E1DA;border-radius:10px;background:#fff;color:#16201B;align-items:center;justify-content:center;cursor:pointer;margin-left:auto}
+.hdr{position:sticky;top:0;z-index:10}
+input,select{font-size:16px!important}
+img{max-width:100%}
+@media (max-width:860px){
+  .burger{display:inline-flex}
+  .nav{display:none!important;width:100%;flex-direction:column;align-items:stretch!important;gap:0!important;order:3}
+  .nav.open{display:flex!important}
+  .nav a{padding:14px 4px;border-top:1px solid #E3E1DA}
+  .hdr-cta{display:none!important}
+  .h1{font-size:38px!important;letter-spacing:-0.5px!important}
+}
+@media (max-width:560px){
+  .hero{padding:44px 16px!important;gap:32px!important}
+  .h1{font-size:32px!important}
+  .h2{font-size:27px!important}
+  .sec{padding:56px 16px!important}
+  .form{padding:20px!important}
+  .cta{padding:36px 22px!important;border-radius:18px!important}
+  .cta a{width:100%;justify-content:center}
+  .hero a{flex:1 1 100%;justify-content:center}
+}
+
 </style>
 </head>
 <body>
 <div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #16201B; background: #F6F5F1; width: 100%; min-height: 100vh;">
 
-<header style="background: #FFFFFF; border-bottom: 1px solid #E3E1DA;">
+<header class="hdr" style="background: #FFFFFF; border-bottom: 1px solid #E3E1DA;">
 <div style="max-width: 1180px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px;">
 <a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: #16201B;">
 <span style="width: 40px; height: 40px; border-radius: 10px; background: #0E5B4A; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px;">AJ</span>
@@ -25,21 +48,24 @@ a{color:#0E5B4A}a:hover{color:#093D32}
 <span style="font-size: 12px; color: #4B564F;">Rental Mobil Timika</span>
 </span>
 </a>
-<nav aria-label="Menu utama" style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px; font-weight: 600;">
+<button type="button" class="burger" aria-label="Buka menu" aria-controls="menu" aria-expanded="false" onclick="toggleMenu(this)">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</button>
+<nav id="menu" class="nav" aria-label="Menu utama" style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px; font-weight: 600;">
 <a href="#armada" style="text-decoration: none; color: #16201B;">Armada</a>
 <a href="#layanan" style="text-decoration: none; color: #16201B;">Layanan</a>
 <a href="#cara-sewa" style="text-decoration: none; color: #16201B;">Cara Sewa</a>
 <a href="#kontak" style="text-decoration: none; color: #16201B;">Kontak</a>
 </nav>
-<a href="#pesan" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #E8A33D; color: #16201B; font-weight: 700; font-size: 15px; text-decoration: none;">Pesan via WhatsApp</a>
+<a href="#pesan" class="hdr-cta" style="display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 20px; border-radius: 10px; background: #E8A33D; color: #16201B; font-weight: 700; font-size: 15px; text-decoration: none;">Pesan via WhatsApp</a>
 </div>
 </header>
 
 <section id="top" style="background: #0E5B4A; color: #FFFFFF;">
-<div style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+<div class="hero" style="max-width: 1180px; margin: 0 auto; padding: 72px 24px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
 <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
 <span style="align-self: flex-start; padding: 6px 12px; border-radius: 999px; background: rgba(255,255,255,0.14); font-size: 13px; font-weight: 600;">Mimika, Papua Tengah</span>
-<h1 style="margin: 0; font-size: 52px; line-height: 1.08; font-weight: 800; letter-spacing: -1px;">Rental Mobil di Timika, Siap Antar ke Bandara &amp; Lokasi Proyek</h1>
+<h1 class="h1" style="margin: 0; font-size: 52px; line-height: 1.08; font-weight: 800; letter-spacing: -1px;">Rental Mobil di Timika, Siap Antar ke Bandara &amp; Lokasi Proyek</h1>
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #DCEBE5;">Sewa harian, mingguan, hingga kontrak bulanan untuk kebutuhan dinas, proyek, dan keluarga. Pilih dengan sopir atau lepas kunci.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px;">
 <a href="#pesan" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px; border-radius: 12px; background: #E8A33D; color: #16201B; font-weight: 700; font-size: 16px; text-decoration: none;">Cek Ketersediaan Mobil</a>
@@ -47,7 +73,7 @@ a{color:#0E5B4A}a:hover{color:#093D32}
 </div>
 </div>
 
-<form id="pesan" aria-label="Form pemesanan" style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; color: #16201B; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.25);">
+<form id="pesan" class="form" aria-label="Form pemesanan" style="flex: 1 1 380px; min-width: 0; background: #FFFFFF; color: #16201B; border-radius: 18px; padding: 28px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.25);">
 <div style="display: flex; flex-direction: column; gap: 4px;">
 <h2 style="margin: 0; font-size: 22px; font-weight: 800;">Pesan Mobil Sekarang</h2>
 <p style="margin: 0; font-size: 14px; color: #4B564F;">Isi form, pesanan langsung terkirim ke WhatsApp kami.</p>
@@ -113,10 +139,10 @@ Kirim Pesanan ke WhatsApp
 </div>
 </section>
 
-<section id="armada" style="max-width: 1180px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px;">
+<section id="armada" class="sec" style="max-width: 1180px; margin: 0 auto; padding: 80px 24px;;  display: flex; flex-direction: column; gap: 32px;">
 <div style="display: flex; flex-direction: column; gap: 8px;">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #0E5B4A;">ARMADA KAMI</span>
-<h2 style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">Pilih mobil sesuai kebutuhan Anda</h2>
+<h2 class="h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">Pilih mobil sesuai kebutuhan Anda</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
 <article style="background: #FFFFFF; border: 1px solid #E3E1DA; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;">
@@ -177,10 +203,10 @@ Kirim Pesanan ke WhatsApp
 </section>
 
 <section id="layanan" style="background: #FFFFFF; border-top: 1px solid #E3E1DA; border-bottom: 1px solid #E3E1DA;">
-<div style="max-width: 1180px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px;">
+<div class="sec" style="max-width: 1180px; margin: 0 auto; padding: 80px 24px;;  display: flex; flex-direction: column; gap: 32px;">
 <div style="display: flex; flex-direction: column; gap: 8px;">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #0E5B4A;">LAYANAN</span>
-<h2 style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">Untuk perorangan maupun perusahaan</h2>
+<h2 class="h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">Untuk perorangan maupun perusahaan</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
 <div style="padding: 28px; border-radius: 16px; background: #F6F5F1; display: flex; flex-direction: column; gap: 10px;">
@@ -199,10 +225,10 @@ Kirim Pesanan ke WhatsApp
 </div>
 </section>
 
-<section id="cara-sewa" style="max-width: 1180px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px;">
+<section id="cara-sewa" class="sec" style="max-width: 1180px; margin: 0 auto; padding: 80px 24px;;  display: flex; flex-direction: column; gap: 32px;">
 <div style="display: flex; flex-direction: column; gap: 8px;">
 <span style="font-size: 13px; font-weight: 700; letter-spacing: 1.5px; color: #0E5B4A;">CARA SEWA</span>
-<h2 style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">Pesan dalam 3 langkah</h2>
+<h2 class="h2" style="margin: 0; font-size: 36px; font-weight: 800; letter-spacing: -0.5px;">Pesan dalam 3 langkah</h2>
 </div>
 <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
 <li style="display: flex; gap: 16px;">
@@ -221,9 +247,9 @@ Kirim Pesanan ke WhatsApp
 </section>
 
 <section id="kontak" style="padding: 0 24px 80px;">
-<div style="max-width: 1132px; margin: 0 auto; background: #0E5B4A; color: #FFFFFF; border-radius: 24px; padding: 56px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px;">
+<div class="cta" style="max-width: 1132px; margin: 0 auto; background: #0E5B4A; color: #FFFFFF; border-radius: 24px; padding: 56px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px;">
 <div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 10px;">
-<h2 style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.5px;">Butuh mobil di Timika?</h2>
+<h2 class="h2" style="margin: 0; font-size: 34px; font-weight: 800; letter-spacing: -0.5px;">Butuh mobil di Timika?</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DCEBE5;">Chat sekarang, admin kami bantu carikan unit yang tersedia hari ini.</p>
 </div>
 <a href="#pesan" style="display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 32px; border-radius: 14px; background: #E8A33D; color: #16201B; font-weight: 800; font-size: 17px; text-decoration: none;">Chat WhatsApp [Nomor]</a>
@@ -247,6 +273,8 @@ Kirim Pesanan ke WhatsApp
 <script>
 // Ganti dengan nomor WhatsApp Aska Jaya (format 62xxxxxxxxxx)
 var NOMOR_WA = "62xxxxxxxxxx";
+function toggleMenu(b){var m=document.getElementById("menu");var o=m.classList.toggle("open");b.setAttribute("aria-expanded",o);}
+document.querySelectorAll("#menu a").forEach(function(a){a.addEventListener("click",function(){document.getElementById("menu").classList.remove("open");});});
 function kirimWA(){
   var jenis = document.querySelector('input[name="jenis"]:checked');
   var pesan = "Halo Aska Jaya, saya mau sewa mobil:\n" +
